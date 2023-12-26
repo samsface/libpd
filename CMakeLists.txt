@@ -194,6 +194,11 @@ endif()
 add_library(libpd_static STATIC ${SOURCE_FILES})
 add_library(libpd        SHARED ${SOURCE_FILES})
 
+target_include_directories(libpd_static PUBLIC libpd_wrapper)
+target_include_directories(libpd PUBLIC libpd_wrapper)
+target_include_directories(libpd_static PUBLIC pure-data/src)
+target_include_directories(libpd PUBLIC pure-data/src)
+
 # set the output library name for libpd depending on the settings
 set(LIBPD_OUTPUT_NAME     pd)
 if (WIN32)
